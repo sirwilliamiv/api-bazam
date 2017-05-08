@@ -6,6 +6,7 @@ exports.up = function(knex, Promise) {
     table.string('songartist').notNullable();
     table.string('songname').notNullable();
     table.string('songalbum').notNullable();
+    table.string('songphoto');
     table.integer('userid').unsigned().index().references('id').inTable('users')
     //
   })

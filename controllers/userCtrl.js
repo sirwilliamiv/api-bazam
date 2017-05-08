@@ -28,8 +28,3 @@ module.exports.createUser = ({ body: {name, email, password}, res, err) => {
     return err
   })
 }
-
- // comparePassword: (passwordString) => {
- //    return compare(passwordStr, this.attributes.password)
- //  }, {
- //    findByEmail: (email) => {
