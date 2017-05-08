@@ -14,7 +14,7 @@ const User = bookshelf.Model.extend({
       return this.forge({email})
       .fetch()
       .then( (user) => {
-        console.log('user controller findemail returned: ', user)
+        console.log('user model find email returned: ', user)
         return user
       })
       .catch((err) => {
