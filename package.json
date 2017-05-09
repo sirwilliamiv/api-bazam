@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/sirwilliamiv/api-bazam#readme",
   "dependencies": {
-    "bcrypt": "^1.0.2",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.17.1",
     "bookshelf": "^0.10.3",
     "bookshelf-bcrypt": "^2.1.0",

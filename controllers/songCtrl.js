@@ -7,7 +7,7 @@ module.exports.createSong = ( { body }, res, err) => {
   Song.forge(body).
   save()
   .then((songObj) => {
-    res.status(201).json(msg: "your song was added!")
+    res.status(201).json({ msg: "your song was added!"})
     .catch((err) => {
       console.log("songctrl createsong err", err)
       return err
@@ -20,14 +20,14 @@ module.exports.deleteSong = ({params: {id}}, res, err) => {
   Song.forge({id}).
   destory()
   .then( (song) => {
-    res.status(200).json( msg: 'song deleted')
+    res.status(200).json({ msg: 'song deleted'})
   })
   .catch((err) => {
     consol.log('delete song in Song ctrl', err)
     return err
   })
 }
-
+//get all songs by user
 module.exports.getAllSongs = ({ params: {id}}, res, err) => {
   Song.forge({id})
   .fetchAll()

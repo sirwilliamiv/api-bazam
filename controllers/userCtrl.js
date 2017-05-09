@@ -5,7 +5,7 @@ const { knex } = require('../db/database');
 
 
 //add user
-module.exports.createUser = ({ body: {name, email, password}, res, err) => {
+module.exports.createUser = ({ body: { name, email, password } }, res, err) => {
   User.findOneByEmail(email)
   .then( (user) => {
     if (user) {
@@ -14,7 +14,7 @@ module.exports.createUser = ({ body: {name, email, password}, res, err) => {
       return User.forge({name, email, password})
       .save()
       .then((data) => {
-        res.status(201).json(msg: 'user added successfully!')
+        res.status(201).json({ msg: 'user added successfully!'} )
         console.log("user added", data)
       })
       .catch((err) => {

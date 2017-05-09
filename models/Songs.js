@@ -5,9 +5,7 @@ const { bookshelf } = require('../db/database');
 
 const Song = bookshelf.Model.extend({
   tableName: 'songs',
-
-  {
-    findAllSongs: (id) => {
+  findAllSongs: (id) => {
       return this.forge({ id })
         .fetchAll()
         .then((songs) => {
@@ -19,7 +17,7 @@ const Song = bookshelf.Model.extend({
           return err
         })
     }
-  }
+
 
 })
 
