@@ -10,7 +10,7 @@ const User = bookshelf.Model.extend({
   comparePassword: (passwordString) => {
     return compare(passwordStr, this.attributes.password)
   },
-  findByEmail: (email) => {
+  findOneByEmail: (email) => {
       return this.forge({email})
       .fetch()
       .then( (user) => {
@@ -25,3 +25,5 @@ const User = bookshelf.Model.extend({
 
 
 })
+
+module.exports = User;

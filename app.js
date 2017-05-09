@@ -12,8 +12,8 @@ const passport = require('passport');
 const knexSessionStore = require('connect-session-knex')(session);
 const routes = require('./routes/');
 // const routes = require('./routes/');
-app.use('./api/v1/', routes);
-
+app.use(bodyParser.json())
+app.use('/api/v1/', routes);
 app.use(cookieParser('bazamsecrets'));
 app.use(session({cookie: {maxAge: 70000, secret: 'bazamsecrets', resave: true, saveUnitialized: false }}));
 app.use(bodyParser.urlencoded({extended: false}));
