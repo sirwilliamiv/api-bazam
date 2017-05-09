@@ -4,8 +4,8 @@ const Song = require('../models/Songs');
 const { knex } = require('../db/database');
 
 module.exports.createSong = ( { body }, res, err) => {
-  Song.forge(body).
-  save()
+  Song.forge(body)
+  .save()
   .then((songObj) => {
     res.status(201).json({ msg: "your song was added!"})
     .catch((err) => {
@@ -23,17 +23,18 @@ module.exports.deleteSong = ({params: {id}}, res, err) => {
     res.status(200).json({ msg: 'song deleted'})
   })
   .catch((err) => {
-    consol.log('delete song in Song ctrl', err)
+    console.log('delete song in Song ctrl', err)
     return err
   })
 }
 //get all songs by user
 module.exports.getAllSongs = ({ params: {id}}, res, err) => {
   Song.forge({id})
-  .fetchAll()
+  .fetch()
   .then((usersSongs) => {
     console.log("you got the songs", usersSongs)
-    return usersSongs
+    return  res.status(200).json({ msg: 'user added successfully!',
+      usersSongs } )
   })
   .catch((err) => {
     console.log("you did not get the users songs", err)
