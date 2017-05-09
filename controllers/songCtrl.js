@@ -18,8 +18,9 @@ module.exports.createSong = ( { body }, res, err) => {
 
 module.exports.deleteSong = ({params: {id}}, res, err) => {
   Song.forge({id}).
-  destory()
+  destroy()
   .then( (song) => {
+    console.log("song deleted info", song)
     res.status(200).json({ msg: 'song deleted'})
   })
   .catch((err) => {
@@ -30,7 +31,7 @@ module.exports.deleteSong = ({params: {id}}, res, err) => {
 //get all songs by user
 module.exports.getAllSongs = ({ params: {id}}, res, err) => {
   Song.forge({id})
-  .fetch()
+  .fetchAll()
   .then((usersSongs) => {
     console.log("you got the songs", usersSongs)
     return  res.status(200).json({ msg: 'user added successfully!',
