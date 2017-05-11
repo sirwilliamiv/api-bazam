@@ -5,8 +5,8 @@ const { knex } = require('../db/database');
 
 
 //add user
-module.exports.createUser = ({ body: { name, password } }, res, err) => {
-  let email = 'blimp@bubs.com'
+module.exports.createUser = ({ body: { name, password, email } }, res, err) => {
+  // let email = 'blimp@bubs.com'
   console.log("you hit the user route")
   // User.findOneByEmail(email)
   // .then( (user) => {

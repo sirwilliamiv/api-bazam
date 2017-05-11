@@ -1,6 +1,7 @@
 'use strict'
 require('dotenv').config();
 const express =require('express');
+const cors = require('cors');
 const app = express();
 const { knex } = require('./db/database');
 const bodyParser = require('body-parser');
@@ -12,6 +13,7 @@ const passport = require('passport');
 const knexSessionStore = require('connect-session-knex')(session);
 const routes = require('./routes/');
 // const routes = require('./routes/');
+app.use(cors())
 app.use(bodyParser.json())
 app.use('/api/v1/', routes);
 app.use(cookieParser('bazamsecrets'));
