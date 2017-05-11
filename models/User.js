@@ -1,16 +1,21 @@
 'use strict'
 
 const { bookshelf } =require ('../db/database');
-// const { compare } =require('bycryptjs');
+const { compare } = require('bcryptjs');
 
 const User = bookshelf.Model.extend({
   tableName: 'users',
   bcrypt: { field: 'password' },
 
-  comparePassword: (passwordString) => {
-    return compare(passwordStr, this.attributes.password)
-  },
-  findOneByEmail: (email) => {
+
+  comparePassword: function (passwordString)  {
+    console.log("passwordSTring", passwordString)
+    return  compare(passwordString, this.attributes.password)
+  }
+
+}, {
+  findOneByEmail: function (email) {
+    console.log("email", email)
       return this.forge({email})
       .fetch()
       .then( (user) => {
@@ -22,8 +27,9 @@ const User = bookshelf.Model.extend({
         return err
       })
     }
+}
 
 
-})
+)
 
 module.exports = User;

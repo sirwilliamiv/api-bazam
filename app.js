@@ -30,7 +30,7 @@ app.use(session({
   secret: process.env.SESSION_SECRET || 'bazamsupersecret'
 }))
 
-// require('./lib/passport-strategies')
+require('./lib/passport-strategies')
 
 app.use(passport.initialize());
 app.use(passport.session());
