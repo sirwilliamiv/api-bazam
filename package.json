@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/sirwilliamiv/api-bazam#readme",
   "dependencies": {
+    "acr-cloud": "^0.1.4",
     "bcrypt": "^1.0.2",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.17.1",
@@ -28,13 +29,17 @@
     "connect-session-knex": "^1.3.4",
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.3",
+    "crypto": "0.0.3",
     "dotenv": "^4.0.0",
+    "env": "0.0.2",
     "express": "^4.15.2",
     "express-flash": "0.0.2",
     "express-session": "^1.15.2",
     "knex": "^0.12.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
-    "pg": "^6.1.5"
+    "pg": "^6.1.5",
+    "request": "^2.81.0",
+    "url": "^0.11.0"
   }
 }
