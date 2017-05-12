@@ -14,7 +14,7 @@ const { ACR_ACCESS_ACCOUNT, ACR_SECRET_KEY, ACR_HOST } = require('../acr_auth')
 
 console.log("host", ACR_HOST)
 
-module.exports.acrRequest = ( { params: { sample64 } },res,err ) => {
+// module.exports.acrRequest = ( { params: { sample64 } },res,err ) => {
 
 
 const options = {
@@ -23,7 +23,7 @@ const options = {
   signature_version: '1',
   data_type:'audio',
   secure: true,
-  access_key: ACR_ACCESS_KEY ,
+  access_key: ACR_ACCESS_ACCOUNT,
   access_secret: ACR_SECRET_KEY
 };
 
@@ -76,7 +76,7 @@ const bitmap = fs.readFileSync('magic.m4a');
  identify(new Buffer(bitmap), options, function (err, httpResponse, body) {
   if (err) console.log(err);
   console.log(body);
-  res.status(200).json({ song: body })
+  // res.status(200).json({ song: body })
 });
 
-} //end acrRequest
+// } //end acrRequest
