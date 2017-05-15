@@ -12,10 +12,13 @@ const { ACR_ACCESS_ACCOUNT, ACR_SECRET_KEY, ACR_HOST } = require('../acr_auth')
 
 
 
-console.log("host", ACR_HOST)
+// console.log("host", ACR_HOST)
 
-// module.exports.acrRequest = ( { params: { sample64 } },res,err ) => {
+module.exports.acrRequest = ( { params: { sample64 } },res,err ) => {
+const bitmap = sample64
+console.log("back end msg", sample64)
 
+console.log("sample64 findctrl", sample64)
 
 const options = {
   host: ACR_HOST ,
@@ -32,15 +35,12 @@ function buildStringToSign(method, uri, accessKey, dataType, signatureVersion, t
 }
 
 function sign(signString, accessSecret) {
-  return crypto.createHmac('sha1',accessSecret).update(new Buffer(signString, 'utf-8')).digest('hex').toString('base64');
-  // crypto.createHmac('sha256', accessSecret)
-  //   .update(new Buffer(signString, 'utf-8'))
-  //   .digest().toString('base64');
+return   crypto.createHmac('sha1', accessSecret).update(new Buffer(signString, 'utf-8')).digest().toString('base64');
 }
 
-/**
- * Identifies a sample of bytes
- */
+// *
+ // * Identifies a sample of bytes
+
 function identify(data, options, cb) {
 
   const current_data = new Date();
@@ -71,12 +71,12 @@ function identify(data, options, cb) {
   }, cb);
 } // end identify
 
-const bitmap = fs.readFileSync('magic.m4a');
+// const bitmap = fs.readFileSync('test_file_2.wav');
 
  identify(new Buffer(bitmap), options, function (err, httpResponse, body) {
   if (err) console.log(err);
   console.log(body);
-  // res.status(200).json({ song: body })
+  res.status(200).json({ song: body })
 });
 
-// } //end acrRequest
+} //end acrRequest
