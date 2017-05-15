@@ -8,8 +8,8 @@ router.use(require('./users'))
 
 router.get('/', (req,res) => {
   res.json({
-    'songs': `https://localhost:3000/api/v1/song/`,
-    'users': `https://localhost:3000/api/v1/user/`
+    'songs': `https://vast-cove-65313.herokuapp.com/api/v1/song/`,
+    'users': `https://vast-cove-65313.herokuapp.com/api/v1/user/`
   })
 })
 
