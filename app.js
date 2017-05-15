@@ -20,15 +20,15 @@ app.use(cookieParser('bazamsecrets'));
 app.use(session({cookie: {maxAge: 70000, secret: 'bazamsecrets', resave: true, saveUnitialized: false }}));
 app.use(bodyParser.urlencoded({extended: false}));
 //save user
-app.use(session({
-  store: new knexSessionStore({
-    knex,
-    tablename:'sessions'
-  }),
-  resave:false,
-  saveUnitialized: false,
-  secret: process.env.SESSION_SECRET || 'bazamsupersecret'
-}))
+// app.use(session({
+//   store: new knexSessionStore({
+//     knex,
+//     tablename:'sessions'
+//   }),
+//   resave:false,
+//   saveUnitialized: false,
+//   secret: process.env.SESSION_SECRET || 'bazamsupersecret'
+// }))
 
 require('./lib/passport-strategies')
 
