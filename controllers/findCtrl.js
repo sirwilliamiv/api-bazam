@@ -8,17 +8,18 @@ const url = require('url');
 const fs = require('fs');
 const crypto = require('crypto');
 const request = require('request');
-const { ACR_ACCESS_ACCOUNT, ACR_SECRET_KEY, ACR_HOST } = require('../acr_auth')
 
 
 
-// console.log("host", ACR_HOST)
 
-module.exports.acrRequest = ( { params: { sample64 } },res,err ) => {
-const bitmap = sample64
-console.log("back end msg", sample64)
 
-console.log("sample64 findctrl", sample64)
+
+module.exports.acrRequest = ( { params: { base64 } },res,err ) => {
+  // console.log("acrObj", acrObj)
+const bitmap = base64
+// console.log("back end msg", sample64)
+
+console.log("bitmap findctrl", bitmap)
 
 const options = {
   host: ACR_HOST ,
@@ -26,7 +27,7 @@ const options = {
   signature_version: '1',
   data_type:'audio',
   secure: true,
-  access_key: ACR_ACCESS_ACCOUNT,
+  access_key: ACR_ACCOUNT,
   access_secret: ACR_SECRET_KEY
 };
 
@@ -71,7 +72,7 @@ function identify(data, options, cb) {
   }, cb);
 } // end identify
 
-// const bitmap = fs.readFileSync('test_file_2.wav');
+// const bitmap = fs.readFileSync('test_file_2.wav'); //testfile
 
  identify(new Buffer(bitmap), options, function (err, httpResponse, body) {
   if (err) console.log(err);
