@@ -22,13 +22,13 @@ const bitmap = base64
 console.log("bitmap findctrl", bitmap)
 
 const options = {
-  host: ACR_HOST ,
+  host: process.env.ACR_HOST ,
   endpoint: '/v1/identify',
   signature_version: '1',
   data_type:'audio',
   secure: true,
-  access_key: ACR_ACCOUNT,
-  access_secret: ACR_SECRET_KEY
+  access_key: process.env.ACR_ACCOUNT,
+  access_secret: process.env.ACR_SECRET_KEY
 };
 
 function buildStringToSign(method, uri, accessKey, dataType, signatureVersion, timestamp) {
