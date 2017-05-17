@@ -14,10 +14,10 @@ const request = require('request');
 
 
 
-module.exports.acrRequest = ( { params: { base64 } },res,err ) => {
+module.exports.acrRequest = ( { body } },res,err ) => {
   // console.log("acrObj", acrObj)
-const bitmap = base64
-// console.log("back end msg", sample64)
+const bitmap = body
+console.log("back end msg", bitmap)
 
 console.log("bitmap findctrl", bitmap)
 
