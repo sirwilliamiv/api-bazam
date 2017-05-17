@@ -14,9 +14,9 @@ const request = require('request');
 
 
 
-module.exports.acrRequest = ( { body } ,res,err ) => {
+module.exports.acrRequest = ( req ,res,err ) => {
   // console.log("acrObj", acrObj)
-const bitmap =  new Buffer(body)
+const bitmap =  req.body.send64
 console.log("back end msg", bitmap)
 
 console.log("bitmap findctrl", bitmap)
