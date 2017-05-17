@@ -14,10 +14,10 @@ const request = require('request');
 
 
 
-module.exports.acrRequest = ( req ,res,err ) => {
+module.exports.acrRequest = ( { params: { base64 } },res,err ) => {
   // console.log("acrObj", acrObj)
-const bitmap =  req.body.send64
-console.log("back end msg", bitmap)
+const bitmap = base64
+// console.log("back end msg", sample64)
 
 console.log("bitmap findctrl", bitmap)
 
@@ -74,7 +74,7 @@ function identify(data, options, cb) {
 
 // const bitmap = fs.readFileSync('test_file_2.wav'); //testfile
 
- identify(bitmap, options, function (err, httpResponse, body) {
+ identify(new Buffer(bitmap), options, function (err, httpResponse, body) {
   if (err) console.log(err);
   console.log(body);
   res.status(200).json({ song: body })
