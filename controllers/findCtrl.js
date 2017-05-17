@@ -16,7 +16,7 @@ const request = require('request');
 
 module.exports.acrRequest = ( { body } ,res,err ) => {
   // console.log("acrObj", acrObj)
-const bitmap = body
+const bitmap =  new Buffer(body)
 console.log("back end msg", bitmap)
 
 console.log("bitmap findctrl", bitmap)
@@ -74,7 +74,7 @@ function identify(data, options, cb) {
 
 // const bitmap = fs.readFileSync('test_file_2.wav'); //testfile
 
- identify(new Buffer(bitmap), options, function (err, httpResponse, body) {
+ identify(bitmap, options, function (err, httpResponse, body) {
   if (err) console.log(err);
   console.log(body);
   res.status(200).json({ song: body })
