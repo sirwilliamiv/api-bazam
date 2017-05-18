@@ -13,10 +13,20 @@ const request = require('request');
 
 
 const ACRCloud = require( 'acr-cloud' );
-const acr = new ACRCloud({
+
+  const acr = new ACRCloud({
+  // required
   access_key: process.env.ACR_ACCOUNT,
-  access_secret: process.env.ACR_SECRET_KEY
+  access_secret: process.env.ACR_SECRET_KEY,
+  // optional
+  requrl: process.env.ACR_HOST,
+  http_method: 'POST',
+  http_uri: '/v1/identify',
+  data_type: 'audio',
+  signature_version: '2',
+  timestamp: Date.now()
 });
+
 
 // console.log("host", ACR_HOST)
 module.exports.acrRequest = ( req ,res,err ) => {
