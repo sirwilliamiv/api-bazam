@@ -5,7 +5,7 @@ const { acrRequest } =require('../controllers/findCtrl');
 
 
 router.post('/song/new', createSong);
-router.post('/song/find/:base64', acrRequest)
+router.post('/song/find', acrRequest)
 router.get('/song/:id', getAllSongs);
 router.delete('/song/delete/:id', deleteSong);
 
