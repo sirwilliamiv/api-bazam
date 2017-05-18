@@ -12,7 +12,7 @@ const request = require('request');
 // const { ACR_SECRET_KEY, ACR_HOST, ACR_ACCOUNT } =require('../acr_auth');
 
 
-const ACRCloud = require( '../acrcloud' );
+const ACRCloud = require( 'acr-cloud' );
 const acr = new ACRCloud({
   access_key: process.env.ACR_ACCOUNT,
   access_secret: process.env.ACR_SECRET_KEY
