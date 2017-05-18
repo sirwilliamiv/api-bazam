@@ -9,17 +9,17 @@ const fs = require('fs');
 const crypto = require('crypto');
 const request = require('request');
 
+// const { ACR_SECRET_KEY, ACR_HOST, ACR_ACCOUNT } =require('../acr_auth');
 
 
 
-
-
+console.log("host", ACR_HOST)
 module.exports.acrRequest = ( req ,res,err ) => {
   // console.log("acrObj", acrObj) base64 starts 22 deep
 const bitmap = req.body.send64.slice(22)
-console.log("back end msg", bitmap)
+// console.log("back end msg", bitmap)
 
-console.log("bitmap findctrl", bitmap)
+// console.log("bitmap findctrl", bitmap)
 
 const options = {
   host: process.env.ACR_HOST ,
@@ -74,10 +74,10 @@ function identify(data, options, cb) {
 
 // const bitmap = fs.readFileSync('test_file_2.wav'); //testfile
 
- identify(new Buffer(bitmap), options, function (err, httpResponse, body) {
+ identify(bitmap, options, function (err, httpResponse, body) {
   if (err) console.log(err);
   console.log(body);
   res.status(200).json({ song: body })
 });
 
-} //end acrRequest
+// } //end acrRequest
