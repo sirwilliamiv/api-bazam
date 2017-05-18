@@ -14,11 +14,13 @@ const knexSessionStore = require('connect-session-knex')(session);
 const routes = require('./routes/');
 // const routes = require('./routes/');
 app.use(cors())
-app.use(bodyParser.json())
+// app.use(bodyParser.json())
 app.use('/api/v1/', routes);
 app.use(cookieParser('bazamsecrets'));
 app.use(session({cookie: {maxAge: 70000, secret: 'bazamsecrets', resave: true, saveUnitialized: false }}));
-app.use(bodyParser.urlencoded({extended: false}));
+const sizeLimit = process.env.SIZE_LIMIT || '5mb';
+app.use( bodyParser.json( { limit: sizeLimit } ) );
+app.use( bodyParser.urlencoded( { limit: sizeLimit, extended: true } ) );
 //save user
 // app.use(session({
 //   store: new knexSessionStore({
