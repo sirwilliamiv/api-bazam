@@ -13,7 +13,7 @@ const request = require('request');
 
 
 
-console.log("host", ACR_HOST)
+// console.log("host", ACR_HOST)
 module.exports.acrRequest = ( req ,res,err ) => {
   // console.log("acrObj", acrObj) base64 starts 22 deep
 const bitmap = req.body.send64
