@@ -74,7 +74,7 @@ function identify(data, options, cb) {
   }, cb);
 } // end identify
 
-// const bitmap = fs.readFileSync(base64buffer); //testfile
+const bitmap = fs.readFileSync(base64buffer); //testfile
 
  identify(new Buffer(base64buffer), options, function (err, httpResponse, body) {
   console.log("base64buffer", base64buffer)
