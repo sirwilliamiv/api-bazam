@@ -16,7 +16,7 @@ const request = require('request');
 
 module.exports.acrRequest = ( req ,res,err ) => {
   // console.log("acrObj", acrObj) base64 starts 22 deep
-const bitmap = req.body.send64.slice(21)
+const bitmap = req.body.send64.slice(22)
 console.log("back end msg", bitmap)
 
 console.log("bitmap findctrl", bitmap)
