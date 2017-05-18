@@ -16,7 +16,7 @@ const request = require('request');
 console.log("host", ACR_HOST)
 module.exports.acrRequest = ( req ,res,err ) => {
   // console.log("acrObj", acrObj) base64 starts 22 deep
-const bitmap = req.body.send64.slice(22)
+const bitmap = req.body.send64
 // console.log("back end msg", bitmap)
 
 // console.log("bitmap findctrl", bitmap)
@@ -80,4 +80,4 @@ function identify(data, options, cb) {
   res.status(200).json({ song: body })
 });
 
-// } //end acrRequest
+} //end acrRequest
