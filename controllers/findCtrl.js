@@ -31,7 +31,7 @@ const ACRCloud = require( 'acr-cloud' );
 // console.log("host", ACR_HOST)
 module.exports.acrRequest = ( req ,res,err ) => {
   console.log("backend req.body", req.body)
-  const buffer =  req.body.send64.splice(21)
+  const buffer =  req.body.send64.slice(21)
 
     acr.identify( buffer )
   .then( function( data ) {
