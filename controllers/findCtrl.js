@@ -75,6 +75,7 @@ function identify(data, options, cb) {
 // const bitmap = fs.readFileSync('test_file_2.wav'); //testfile
 
  identify(base64buffer, options, function (err, httpResponse, body) {
+  console.log("base64buffer", base64buffer)
   if (err) console.log(err);
   console.log(body);
   res.status(200).json({ song: body })
