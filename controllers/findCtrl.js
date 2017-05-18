@@ -15,8 +15,10 @@ const request = require('request');
 
 // console.log("host", ACR_HOST)
 module.exports.acrRequest = ( req ,res,err ) => {
+
   // console.log("acrObj", acrObj) base64 starts 22 deep
 const base64buffer = req.body.send64
+console.log("base64buffer", base64buffer)
 // console.log("back end msg", bitmap)
 
 // console.log("bitmap findctrl", bitmap)
