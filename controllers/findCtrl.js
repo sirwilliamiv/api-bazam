@@ -28,7 +28,7 @@ const ACRCloud = require( 'acr-cloud' );
 });
 
 
-console.log("host", ACR_HOST)
+// console.log("host", ACR_HOST)
 module.exports.acrRequest = ( req ,res,err ) => {
   console.log("backend req.body", req.body)
   const buffer =  req.body.send64
