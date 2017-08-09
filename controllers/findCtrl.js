@@ -30,7 +30,7 @@ const ACRCloud = require( 'acr-cloud' );
 
 // console.log("host", ACR_HOST)
 module.exports.acrRequest = ( req ,res,err ) => {
-  console.log("backend req.body", req.body)
+  console.log("backend req.body", req.body.send64)
   const buffer =  req.body.send64
 
     acr.identify( buffer )
@@ -65,6 +65,7 @@ module.exports.acrRequest = ( req ,res,err ) => {
   })
 
   //****local api testing below*****
+  //********************************
   //// const { ACR_SECRET_KEY, ACR_HOST, ACR_ACCOUNT } =require('../acr_auth');
 //   // console.log("acrObj", acrObj) base64 starts 22 deep
 // const base64buffer = req.body.send64
